@@ -2,10 +2,6 @@
 
 This is a full-stack web application that uses AI to generate high-quality marketing copy. It features a modern, interactive frontend built with React and a robust backend API built with Python and FastAPI, including a persistent history of all generated content.
 
-**Live Demo Links:**
-* **Frontend:** [Link to your Vercel deployment]
-* **Backend API:** [Link to your Render deployment]
-
 
 
 ---
@@ -23,7 +19,7 @@ This is a full-stack web application that uses AI to generate high-quality marke
 | Category      | Technology                                    |
 | :------------ | :-------------------------------------------- |
 | **Frontend** | React, Axios, React Hooks                     |
-| **Backend** | Python, FastAPI, Gunicorn                     |
+| **Backend** | Python, FastAPI                               |
 | **Database** | SQLite                                        |
 | **AI API** | Groq                                          |
 | **AI Model** | Llama 3.3 70B Versatile                       |
@@ -42,7 +38,7 @@ Follow these steps to get the entire application running on your local machine.
 
 Clone this project to your local machine.
 ```bash
-git clone [https://github.com/Adidev-33/marketing-content-generator.git](https://github.com/Adidev-33/marketing-content-generator.git)
+git clone <your-repo-link>
 cd marketing-content-generator
 ```
 
@@ -115,6 +111,8 @@ npm start
 Your frontend application will open in your browser at `http://localhost:3000`.
 
 ---
+## ## AI Integration & Prompting
+
 ### ### AI API Used: Groq
 
 This project uses the **Groq API** to power its content generation.
@@ -142,9 +140,9 @@ During development, several challenges were encountered and resolved:
     * **Problem**: The browser blocked the frontend (on `localhost:3000`) from making requests to the backend (on `localhost:8000`) due to Cross-Origin Resource Sharing (CORS) policy.
     * **Solution**: Implemented FastAPI's `CORSMiddleware` on the backend to explicitly allow requests from the frontend's origin.
 
-* **Challenge: Python `ImportError`**
-    * **Problem**: The backend server would crash on startup with an `ImportError: attempted relative import with no known parent package`.
-    * **Solution**: The relative imports (e.g., `from . import models`) were changed to absolute imports (e.g., `import models`), which is more robust for how the `uvicorn` server runs the script.
+* **Challenge: Decommissioned AI Models**
+    * **Problem**: The Groq API frequently updated its available models, causing previously used models like `llama3-8b-8192` to be decommissioned, resulting in API errors.
+    * **Solution**: The code was updated to use a more stable and powerful model (`mixtral-8x7b-32768`), highlighting the need to be adaptable when working with rapidly evolving third-party APIs.
 
 * **Challenge: API Key Security**
     * **Problem**: Hardcoding the `GROQ_API_KEY` directly into the Python script would be a major security risk, especially in a public repository.
