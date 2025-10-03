@@ -1,6 +1,6 @@
 # Marketing Content Generator 🚀
 
-This is a full-stack web application that uses AI to generate high-quality marketing copy. It features a modern, interactive frontend built with React and a robust backend API built with Python and FastAPI, including a persistent history of all generated content.
+This is a full-stack web application that uses AI to generate high-quality marketing content for products. It features a modern, interactive frontend built with React and a robust backend API built with Python and FastAPI, including a persistent history of all generated content.
 
 
 
