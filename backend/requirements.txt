@@ -5,3 +5,4 @@ groq
 fastapi-cors
 sqlalchemy
 gunicorn
+psycopg2-binary
