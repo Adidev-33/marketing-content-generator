@@ -142,7 +142,7 @@ During development, several challenges were encountered and resolved:
 
 * **Challenge: Decommissioned AI Models**
     * **Problem**: The Groq API frequently updated its available models, causing previously used models like `llama3-8b-8192` to be decommissioned, resulting in API errors.
-    * **Solution**: The code was updated to use a more stable and powerful model (`mixtral-8x7b-32768`), highlighting the need to be adaptable when working with rapidly evolving third-party APIs.
+    * **Solution**: The code was updated to use a more stable and powerful model (`Llama 3.3 70B Versatile`), highlighting the need to be adaptable when working with rapidly evolving third-party APIs.
 
 * **Challenge: API Key Security**
     * **Problem**: Hardcoding the `GROQ_API_KEY` directly into the Python script would be a major security risk, especially in a public repository.
