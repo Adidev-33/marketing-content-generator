@@ -47,7 +47,17 @@ async def generate_content(request: ProductRequest, db: Session = Depends(get_db
         chat_completion = client.chat.completions.create(
             model="llama-3.3-70b-versatile",
             messages=[
-                {"role": "system", "content": "You are an expert marketing copywriter..."},
+                {
+                    "role": "system",
+                    "content": """
+                    You are an expert marketing copywriter. Your task is to generate compelling marketing text for a product.
+                    The output should be a single block of text, structured as follows:
+                    A catchy and attractive headline.
+                    A short, engaging paragraph (2-3 sentences) describing the product's main benefit.
+                    A bulleted list of 3 key features, starting each with a relevant emoji.
+                    A strong call-to-action at the end. Do not use JSON or markdown formatting. Just provide the raw text.
+                    """
+                },
                 {"role": "user", "content": f"Product Name: {request.product_name}\nProduct Description: {request.product_description}"}
             ],
         )
