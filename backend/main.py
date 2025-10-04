@@ -13,7 +13,7 @@ database.Base.metadata.create_all(bind=database.engine)
 load_dotenv()
 app = FastAPI()
 
-origins = ["http://localhost:3000", "https://marketing-content-generator-tjuh.vercel.app/"]
+origins = ["http://localhost:3000", "https://marketing-content-generator-tjuh.vercel.app"]
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 try:
