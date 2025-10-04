@@ -3,7 +3,6 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
-  load_dotenv()
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [marketingContent, setMarketingContent] = useState('');
