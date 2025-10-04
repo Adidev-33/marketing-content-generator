@@ -3,6 +3,7 @@ import axios from 'axios';
 import './App.css';
 
 function App() {
+  load_dotenv()
   const [productName, setProductName] = useState('');
   const [productDescription, setProductDescription] = useState('');
   const [marketingContent, setMarketingContent] = useState('');
@@ -18,7 +19,7 @@ function App() {
 
   const fetchHistory = async () => {
     try {
-      const response = await axios.get('http://localhost:8000/history');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/history`);
       setHistory(response.data);
     } catch (err) {
       console.error("Failed to fetch history.", err);
@@ -36,7 +37,7 @@ function App() {
     setMarketingContent('');
 
     try {
-      const response = await axios.post('http://localhost:8000/generate-content', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/generate-content`, {
         product_name: productName,
         product_description: productDescription,
       });
@@ -51,7 +52,7 @@ function App() {
 
   const handleDeleteItem = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/history/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/history/${id}`);
       fetchHistory();
     } catch (err) {
       console.error("Failed to delete history item.", err);
@@ -62,7 +63,7 @@ function App() {
   const handleClearHistory = async () => {
     if (window.confirm("Are you sure you want to delete all history? This action cannot be undone.")) {
       try {
-        await axios.delete('http://localhost:8000/history');
+        await axios.delete(`${process.env.REACT_APP_API_URL}/history`);
         fetchHistory();
       } catch (err) {
         console.error("Failed to clear history.", err);
